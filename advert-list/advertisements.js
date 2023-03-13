@@ -23,3 +23,12 @@ export const advertisements = [{
     price: 25000,
     sell: false,
 }]
+
+export async function getAdverts() {
+    const advertsUrl = 'url' // TODO: url de sparrest aqui
+
+    const response = await fetch(advertsUrl);
+    const adverts = await response.json();
+
+    return adverts
+}
