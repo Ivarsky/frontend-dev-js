@@ -8,8 +8,7 @@ export async function advertListController(advertListElement) {
 
     try {
         advertisements = await getAdverts()
-
-        hideSpinner(advertListElement);
+        dispatchCustomEvent('Adverts loaded', advertListElement)
 
         if (advertisements.length > 0) {
             showAdds(advertisements, advertListElement)
@@ -18,7 +17,11 @@ export async function advertListController(advertListElement) {
         }
 
     } catch (error) {
-        advertListElement.innerHTML = buildErrorLoadingAdverts();
+        // advertListElement.innerHTML = buildErrorLoadingAdverts();
+        dispatchCustomEvent('Cannot load adverts', advertListElement)
+
+    } finally {
+        hideSpinner(advertListElement)
     }
 }
 
@@ -36,4 +39,13 @@ function showAdds(advertisements, advertListElement) {
 
 function showEmptyMessage(advertListElement) {
     advertListElement.innerHTML = buildEmptyAdvertslist();
+}
+
+function dispatchCustomEvent(message, advertListElement) {
+    const event = new CustomEvent('newNotification', {
+        detail: {
+            message: message
+        }
+    })
+    advertListElement.dispatchEvent(event);
 }
