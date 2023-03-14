@@ -1,3 +1,4 @@
+/*
 export const advertisements = [{
     image: 'image1',
     name: 'bycicle',
@@ -23,9 +24,10 @@ export const advertisements = [{
     price: 25000,
     sell: false,
 }]
+*/
 
 export async function getAdverts() {
-    const advertsUrl = 'url' // TODO: url de sparrest aqui
+    const advertsUrl = 'http://localhost:8000/api/advertisements'; // sparrest url
 
     const response = await fetch(advertsUrl);
     const adverts = await response.json();

@@ -1,19 +1,24 @@
-import { advertisements } from "./advertisements.js";
-// import { getAdverts } from "./advertisements.js";
+import { getAdverts } from "./advertisements.js";
+import { buildAdvertView, buildSpinnerView, buildErrorLoadingAdverts, buildEmptyAdvertslist } from "./advertView.js";
 
-import { buildAdvertView, buildSpinnerView } from "./advertView.js";
-
-
-export function advertListController(advertListElement) { //async antes de function
+export async function advertListController(advertListElement) {
 
     advertListElement.innerHTML = buildSpinnerView();
-    // const advertisements = await getAdverts()
+    let advertisements = [];
 
-    hideSpinner(advertListElement);
+    try {
+        advertisements = await getAdverts()
 
-    for (const advert of advertisements) {
-        const newAdvertElement = buildAdvertView(advert);
-        advertListElement.appendChild(newAdvertElement)
+        hideSpinner(advertListElement);
+
+        if (advertisements.length > 0) {
+            showAdds(advertisements, advertListElement)
+        } else {
+            showEmptyMessage(advertListElement)
+        }
+
+    } catch (error) {
+        advertListElement.innerHTML = buildErrorLoadingAdverts();
     }
 }
 
@@ -22,4 +27,13 @@ function hideSpinner(advertListElement) {
     spinnerElement.classList.add('hide');
 }
 
-//TODO: implementa los commentarios una vez hayas cargado sparrest
+function showAdds(advertisements, advertListElement) {
+    for (const advert of advertisements) {
+        const newAdvertElement = buildAdvertView(advert);
+        advertListElement.appendChild(newAdvertElement)
+    }
+}
+
+function showEmptyMessage(advertListElement) {
+    advertListElement.innerHTML = buildEmptyAdvertslist();
+}
