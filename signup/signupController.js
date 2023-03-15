@@ -1,7 +1,7 @@
-
+import { createUser } from "./signup.js";
 export function signupController(signupElement) {
 
-    signupElement.addEventListener('submit', (event) => {
+    signupElement.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         const emailElement = signupElement.querySelector('#username');
@@ -9,7 +9,7 @@ export function signupController(signupElement) {
         const passwordConfirmElement = signupElement.querySelector('#passwordConfirm');
 
         if (isEmailValid(emailElement.value) && arePasswordsValid(passwordElement.value, passwordConfirmElement.value)) {
-            createUser(emailElement.value, passwordElement.value)
+            await createUser(emailElement.value, passwordElement.value)
         }
     })
 
@@ -31,12 +31,4 @@ export function signupController(signupElement) {
         return true
     }
 
-    function createUser(email, password) {
-        const user = {
-            username: email,
-            password: password
-        }
-
-
-    }
 }
