@@ -4,33 +4,39 @@ export function signupController(signupElement) {
     signupElement.addEventListener('submit', (event) => {
         event.preventDefault();
 
-        if (isFormValid(signupElement)) {
-            //create user
+        const emailElement = signupElement.querySelector('#username');
+        const passwordElement = signupElement.querySelector('#password');
+        const passwordConfirmElement = signupElement.querySelector('#passwordConfirm');
+
+        if (isEmailValid(emailElement.value) && arePasswordsValid(passwordElement.value, passwordConfirmElement.value)) {
+            createUser(emailElement.value, passwordElement.value)
         }
     })
 
 
-    function arePasswordsValid(signupElement) {
-        const passwordElement = signupElement.querySelector('#password');
-        const passwordConfirmElement = signupElement.querySelector('#passwordConfirm');
-        if (passwordElement.value !== passwordConfirmElement.value) {
+    function arePasswordsValid(password, passwordConfirmation) {
+        if (password !== passwordConfirmation) {
             alert('passwords not matching!');
             return false
         }
         return true
     }
 
-    function isEmailValid(signupElement) {
+    function isEmailValid(email) {
         const mailRegExp = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
-        const emailElement = signupElement.querySelector('#username');
-        if (!mailRegExp.test(emailElement.value)) {
+        if (!mailRegExp.test(email)) {
             alert('Email format not supported!');
             return false
         }
         return true
     }
 
-    function isFormValid(signupElement) {
-        return isEmailValid(signupElement) && arePasswordsValid(signupElement)
+    function createUser(email, password) {
+        const user = {
+            username: email,
+            password: password
+        }
+
+
     }
 }
