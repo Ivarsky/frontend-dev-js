@@ -9,7 +9,12 @@ export function signupController(signupElement) {
         const passwordConfirmElement = signupElement.querySelector('#passwordConfirm');
 
         if (isEmailValid(emailElement.value) && arePasswordsValid(passwordElement.value, passwordConfirmElement.value)) {
-            await createUser(emailElement.value, passwordElement.value)
+            try {
+                await createUser(emailElement.value, passwordElement.value)
+                alert('User created succesfully')
+            } catch (error) {
+                alert(error.message)
+            }
         }
     })
 
