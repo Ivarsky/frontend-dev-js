@@ -11,7 +11,9 @@ export function signupController(signupElement) {
         if (isEmailValid(emailElement.value) && arePasswordsValid(passwordElement.value, passwordConfirmElement.value)) {
             try {
                 await createUser(emailElement.value, passwordElement.value)
-                alert('User created succesfully')
+                signupElement.reset();
+                alert('User created succesfully');
+                window.location = '/'
             } catch (error) {
                 alert(error.message)
             }
