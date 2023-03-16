@@ -27,7 +27,7 @@ export function signupController(signupElement) {
         }
     })
 
-
+//TODO: deuda tecnica, reformatear a utils
     function arePasswordsValid(password, passwordConfirmation) {
         if (password !== passwordConfirmation) {
             pubSub.publish(pubSub.TOPICS.SHOW_NOTIFICATION, 'Passwords not matching!')
