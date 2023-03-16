@@ -4,10 +4,13 @@ import { notificationController } from './notifications/notificationController.j
 const advertListElement = document.querySelector('.advert-list')
 const notificationsElement = document.querySelector('.notifications')
 
-const showMessage = notificationController(notificationsElement)
+notificationController(notificationsElement)
+
 advertListController(advertListElement)
 
+/*
 advertListElement.addEventListener('newNotification', (event) => {
     console.log('Event received!', event.detail.message);
     showMessage(event.detail.message)
 })
+*/

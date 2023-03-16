@@ -1,3 +1,4 @@
+import { pubSub } from "../pubSub.js";
 import { getAdverts } from "./advertisements.js";
 import { buildAdvertView, buildSpinnerView, buildErrorLoadingAdverts, buildEmptyAdvertslist } from "./advertView.js";
 
@@ -8,7 +9,8 @@ export async function advertListController(advertListElement) {
 
     try {
         advertisements = await getAdverts()
-        dispatchCustomEvent('Adverts loaded', advertListElement)
+        //dispatchCustomEvent('Adverts loaded', advertListElement)
+        pubSub.publish(pubSub.TOPICS.SHOW_NOTIFICATION, 'Adverts loaded')
 
         if (advertisements.length > 0) {
             showAdds(advertisements, advertListElement)
@@ -18,7 +20,8 @@ export async function advertListController(advertListElement) {
 
     } catch (error) {
         // advertListElement.innerHTML = buildErrorLoadingAdverts();
-        dispatchCustomEvent('Cannot load adverts', advertListElement)
+        //dispatchCustomEvent('Cannot load adverts', advertListElement)
+        pubSub.publish(pubSub.TOPICS.SHOW_NOTIFICATION, 'Cannot load adverts')
 
     } finally {
         hideSpinner(advertListElement)
@@ -41,6 +44,7 @@ function showEmptyMessage(advertListElement) {
     advertListElement.innerHTML = buildEmptyAdvertslist();
 }
 
+/*
 function dispatchCustomEvent(message, advertListElement) {
     const event = new CustomEvent('newNotification', {
         detail: {
@@ -49,3 +53,4 @@ function dispatchCustomEvent(message, advertListElement) {
     })
     advertListElement.dispatchEvent(event);
 }
+*/
