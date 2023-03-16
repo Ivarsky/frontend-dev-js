@@ -1,9 +1,11 @@
+import { buildSpinnerView } from "../advert-list/advertView.js";
 import { pubSub } from "../pubSub.js";
 import { createUser } from "./signup.js";
 export function signupController(signupElement) {
 
     signupElement.addEventListener('submit', async (event) => {
         event.preventDefault();
+        signupElement.innerHTML = buildSpinnerView();
 
         const emailElement = signupElement.querySelector('#username');
         const passwordElement = signupElement.querySelector('#password');
@@ -19,6 +21,8 @@ export function signupController(signupElement) {
             } catch (error) {
                 //alert(error.message)
                 pubSub.publish(pubSub.TOPICS.SHOW_NOTIFICATION, error.message)
+            } finally{
+                hideSpinner(signupElement)
             }
         }
     })
@@ -42,4 +46,8 @@ export function signupController(signupElement) {
         return true
     }
 
+}
+function hideSpinner(signupElement) {
+    const spinnerElement = signupElement.querySelector('.spinner');
+    spinnerElement.classList.add('hide');
 }
