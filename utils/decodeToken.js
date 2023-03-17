@@ -6,5 +6,5 @@ export const decodeToken = (token) => {
     } catch (error) {
         return null;
     }
-    return decodeToken;
+    return decodedToken;
 }
