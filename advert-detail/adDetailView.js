@@ -6,5 +6,7 @@ export const  buildAdvertDetailView = (advert) => {
         <img src="${advert.image}" />
     </div>
         <p> ${advert.description} </p>
+
+        <button id="deleteAd">Delete</button>
     `
 }

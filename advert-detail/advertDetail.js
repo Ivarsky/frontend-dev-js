@@ -9,3 +9,15 @@ export const getAdDetailbyId = async (adId) => {
 
     return advert
 }
+
+export const deleteAd = async (adId) => {
+    const token = localStorage.getItem('token')
+
+    const response = await fetch(`http://localhost:8000/api/advertisements/${adId}`,{
+        method: 'DELETE',
+        headers:{
+            'Content-Type':'application/json',
+            "Authorization": `Bearer ${token}`,
+        }
+    })
+}
