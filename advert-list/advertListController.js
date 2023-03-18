@@ -9,7 +9,6 @@ export async function advertListController(advertListElement) {
 
     try {
         advertisements = await getAdverts()
-        //dispatchCustomEvent('Adverts loaded', advertListElement)
         pubSub.publish(pubSub.TOPICS.SHOW_NOTIFICATION, 'Adverts loaded')
 
         if (advertisements.length > 0) {
@@ -19,10 +18,7 @@ export async function advertListController(advertListElement) {
         }
 
     } catch (error) {
-        // advertListElement.innerHTML = buildErrorLoadingAdverts();
-        //dispatchCustomEvent('Cannot load adverts', advertListElement)
         pubSub.publish(pubSub.TOPICS.SHOW_NOTIFICATION, 'Cannot load adverts')
-
     } finally {
         hideSpinner(advertListElement)
     }
@@ -43,14 +39,3 @@ function showAdds(advertisements, advertListElement) {
 function showEmptyMessage(advertListElement) {
     advertListElement.innerHTML = buildEmptyAdvertslist();
 }
-
-/*
-function dispatchCustomEvent(message, advertListElement) {
-    const event = new CustomEvent('newNotification', {
-        detail: {
-            message: message
-        }
-    })
-    advertListElement.dispatchEvent(event);
-}
-*/

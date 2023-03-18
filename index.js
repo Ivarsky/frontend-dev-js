@@ -12,10 +12,3 @@ userActionController(userActionElement)
 notificationController(notificationsElement)
 
 advertListController(advertListElement)
-
-/*
-advertListElement.addEventListener('newNotification', (event) => {
-    console.log('Event received!', event.detail.message);
-    showMessage(event.detail.message)
-})
-*/
