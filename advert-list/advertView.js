@@ -2,8 +2,13 @@ export function buildAdvertView(advert) {
     const newAdvertElement = document.createElement('article');
     newAdvertElement.classList.add('advert')
     newAdvertElement.innerHTML = `
-        <p> ${advert.name} - ${advert.price} Euros </p>
-        <p> ${advert.image} </p>
+    <a href="/advert-details.html?adId=${advert.id}">
+    <div class="add-info"">
+        <span> ${advert.name} - ${advert.price} Euros </span>
+        <br>
+        <img src="${advert.image}" />
+    </div>
+    </a>
         <p> ${advert.description} </p>
         `;
     return newAdvertElement;
@@ -19,7 +24,7 @@ export function buildSpinnerView() {
     `
 }
 
-export function buildErrorLoadingAdverts() {
+export function buildErrorLoadingAdverts() {//TODO: no se usa??
     return `<p class="load-error"> Error while loading ads, try later </p>`
 }
 
