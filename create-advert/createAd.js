@@ -15,7 +15,7 @@ export const createAd = async (newAdData)=>{
             'Content-Type':'application/json',
             "Authorization": `Bearer ${token}`,
         },
-        body: JSON.stringify({newAdvert})
+        body: JSON.stringify(newAdvert)
     })
 
     if (!response.ok) { 
