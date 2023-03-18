@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Advert</title>
+</head>
+<body>
+    <h1>Create you ad</h1>
+    <form id="createAdFrom">
+        <label for="name">Name of product</label>
+        <input type="text" name="name" id="name", required>
+        <br>
+        <label for="image">Url photo (optional)</label>
+        <input type="text" name="photo-url" id="photo-url">
+        <br>
+        <label for="price">Price in EUR</label>
+        <input type="number" name="price" id="price" required>
+        <br>
+        <textarea name="description" id="description" cols="30" rows="10", required>Description of product</textarea>
+        <br>
+        <input type="radio" name="sell" id="sell" value="true">
+        <label for="sell">Sell</label>
+        <input type="radio" name="sell" id="buy" value="false">
+        <label for="buy">Buy</label>
+        <br>
+        <button type="submit">Create ad</button>
+
+    </form>
+    
+    <script type="module" src="./create-advert/index.js"></script>
+</body>
+</html>

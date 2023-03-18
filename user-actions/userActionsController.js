@@ -15,6 +15,7 @@ export function userActionController(userActionsElement){
     } else {
         const createAdLinkElement = userActionsElement.querySelector('#createAdLink');
         createAdLinkElement.remove()
+        //TODO: boton logout 
 
     }
 }
