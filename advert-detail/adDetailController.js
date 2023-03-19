@@ -1,6 +1,7 @@
 import { buildAdvertDetailView } from "./adDetailView.js"
 import { deleteAd, getAdDetailbyId } from "./advertDetail.js"
 import { decodeToken } from "../utils/decodeToken.js"
+import { pubSub } from "../utils/pubSub.js"
 
 export const adDetailController = async (adDetailElement, adId) => {
 
@@ -8,8 +9,13 @@ export const adDetailController = async (adDetailElement, adId) => {
         const advert = await getAdDetailbyId(adId)
         adDetailElement.innerHTML = buildAdvertDetailView(advert)
         handleDeleteAdButton(adDetailElement, advert)
+        pubSub.publish(pubSub.TOPICS.SHOW_NOTIFICATION, 'Advert detail loaded')
     } catch (error) {
-        alert(error.message)//TODO: A METODO PUBSUB (1:14 ULTIMA CLASE)
+        //alert(error.message)//TODO: A METODO PUBSUB (1:14 ULTIMA CLASE)
+        pubSub.publish(pubSub.TOPICS.SHOW_NOTIFICATION, `${error.message}`)
+        setTimeout(() => {
+            window.location = '/'
+        }, 5000)
     }
 
     function handleDeleteAdButton(adDetailElement, advert){

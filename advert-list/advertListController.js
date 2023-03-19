@@ -1,4 +1,4 @@
-import { pubSub } from "../pubSub.js";
+import { pubSub } from "../utils/pubSub.js";
 import { getAdverts } from "./advertisements.js";
 import { buildAdvertView, buildSpinnerView, buildErrorLoadingAdverts, buildEmptyAdvertslist } from "./advertView.js";
 

@@ -1,4 +1,4 @@
-import { pubSub } from "../pubSub.js";
+import { pubSub } from "../utils/pubSub.js";
 import { buildNotificationView } from "./notificationView.js";
 
 export function notificationController(notificationsElement) {
