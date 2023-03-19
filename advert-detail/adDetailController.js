@@ -2,9 +2,10 @@ import { buildAdvertDetailView } from "./adDetailView.js"
 import { deleteAd, getAdDetailbyId } from "./advertDetail.js"
 import { decodeToken } from "../utils/decodeToken.js"
 import { pubSub } from "../utils/pubSub.js"
+import { showSpinnerPubSub, hideSpinnerPubSub } from "../utils/spinnerPubSub.js"
 
 export const adDetailController = async (adDetailElement, adId) => {
-
+    showSpinnerPubSub.publish(showSpinnerPubSub.TOPICS.SHOW_SPINNER)
     try {
         const advert = await getAdDetailbyId(adId)
         adDetailElement.innerHTML = buildAdvertDetailView(advert)
@@ -15,6 +16,8 @@ export const adDetailController = async (adDetailElement, adId) => {
         setTimeout(() => {
             window.location = '/'
         }, 5000)
+    } finally{
+        hideSpinnerPubSub.publish(hideSpinnerPubSub.TOPICS.HIDE_SPINNER)
     }
 
     function handleDeleteAdButton(adDetailElement, advert){
