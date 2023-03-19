@@ -11,8 +11,7 @@ export const adDetailController = async (adDetailElement, adId) => {
         handleDeleteAdButton(adDetailElement, advert)
         pubSub.publish(pubSub.TOPICS.SHOW_NOTIFICATION, 'Advert detail loaded')
     } catch (error) {
-        //alert(error.message)//TODO: A METODO PUBSUB (1:14 ULTIMA CLASE)
-        pubSub.publish(pubSub.TOPICS.SHOW_NOTIFICATION, `${error.message}`)
+        pubSub.publish(pubSub.TOPICS.SHOW_NOTIFICATION, `${error.message}, reloading to main page`)
         setTimeout(() => {
             window.location = '/'
         }, 5000)
