@@ -1,0 +1,17 @@
+.advert {
+    border: solid 1px lightgray;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .advert .add-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .advert img {
+    width: 150px;
+    height: 150px;
+  }

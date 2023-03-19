@@ -13,7 +13,8 @@ export function buildAdvertView(advert) {
     <a href="/advert-details.html?adId=${advert.id}">
     <div class="add-info"">
     <h3>${sellOrBuy}</h3>
-        <span> ${advert.name} - ${advert.price} Euros </span>
+        <br>
+        <h3><span> ${advert.name} - ${advert.price} Euros </span></h3>
         <br>
         <img src="${advert.image}" />
     </div>
