@@ -20,7 +20,7 @@ In this project we have to build a wallapop clone
     ```sh
     npx live-server
     ```
-
+- open http://127.0.0.1:8080/ in your browser
 ## Test user:
 - user: Mental@Magikarp.com
 - password: 123456
