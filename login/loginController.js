@@ -1,4 +1,4 @@
-import { buildSpinnerView } from "../advert-list/advertView.js"; //TODO: spinner
+import { buildSpinnerView} from "./loginViews.js"; //TODO: spinner
 import { pubSub } from "../utils/pubSub.js";
 import { isEmailValid } from "../utils/accountInfoVerification.js";
 import { loginUser } from "./login.js";
@@ -24,13 +24,15 @@ export function loginController(loginElement){
 
 
             try {
+                loginElement.innerHTML = buildSpinnerView();
+                pubSub.publish(pubSub.TOPICS.SHOW_NOTIFICATION, `Login in`);
                 const jwt = await loginUser(username, password);
                 localStorage.setItem('token', jwt);
-                window.location = '/';
+                setTimeout(() => {
+                    window.location = '/'
+                }, 500)
             } catch (error) {
                 pubSub.publish(pubSub.TOPICS.SHOW_NOTIFICATION, error.message)
-            } finally {
-                hideSpinner(loginElement)
             }
     }
 }

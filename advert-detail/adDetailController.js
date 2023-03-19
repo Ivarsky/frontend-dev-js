@@ -1,11 +1,10 @@
-import { buildAdvertDetailView } from "./adDetailView.js"
+import { buildAdvertDetailView, buildSpinnerView, hideSpinner } from "./adDetailView.js"
 import { deleteAd, getAdDetailbyId } from "./advertDetail.js"
 import { decodeToken } from "../utils/decodeToken.js"
 import { pubSub } from "../utils/pubSub.js"
-import { showSpinnerPubSub, hideSpinnerPubSub } from "../utils/spinnerPubSub.js"
 
 export const adDetailController = async (adDetailElement, adId) => {
-    showSpinnerPubSub.publish(showSpinnerPubSub.TOPICS.SHOW_SPINNER)
+    adDetailElement.innerHTML = buildSpinnerView();
     try {
         const advert = await getAdDetailbyId(adId)
         adDetailElement.innerHTML = buildAdvertDetailView(advert)
@@ -16,8 +15,8 @@ export const adDetailController = async (adDetailElement, adId) => {
         setTimeout(() => {
             window.location = '/'
         }, 5000)
-    } finally{
-        hideSpinnerPubSub.publish(hideSpinnerPubSub.TOPICS.HIDE_SPINNER)
+    } finally {
+        hideSpinner(adDetailElement)
     }
 
     function handleDeleteAdButton(adDetailElement, advert){
@@ -32,8 +31,12 @@ export const adDetailController = async (adDetailElement, adId) => {
                 handleDeleteAdButtonElement.addEventListener('click', async () => {
                     const answer = confirm("The ad will be deleted PERMANENTLY, are you sure?")
                     if (answer) {
+                        pubSub.publish(pubSub.TOPICS.SHOW_NOTIFICATION, `Deleting ad`);
+                        adDetailElement.innerHTML = buildSpinnerView();
                         await deleteAd(advert.id)
-                        window.location = '/'
+                        setTimeout(() => {
+                            window.location = '/'
+                        }, 3000)
                     }
                 })
             } else {
@@ -42,3 +45,4 @@ export const adDetailController = async (adDetailElement, adId) => {
         }
     }
 }
+

@@ -18,3 +18,18 @@ export const  buildAdvertDetailView = (advert) => {
         <button id="deleteAd">Delete</button>
     `
 }
+
+export function buildSpinnerView() {
+    return `
+    <div class="spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    `
+}
+
+export function hideSpinner(adDetailElement) {
+    const spinnerElement = adDetailElement.querySelector('.spinner');
+    spinnerElement.classList.add('hide');
+}

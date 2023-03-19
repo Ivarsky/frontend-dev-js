@@ -1,5 +1,6 @@
 import { createAd } from "./createAd.js";
 import { pubSub } from "../utils/pubSub.js";
+import { buildSpinnerView } from "./createAdView.js";
 
 export const createAdController = (createAdFormElement) => {
     createAdFormElement.addEventListener('submit', async (event) => {
@@ -17,6 +18,7 @@ export const createAdController = (createAdFormElement) => {
         
         try {
             await createAd(newAdData);
+            createAdFormElement.innerHTML = buildSpinnerView();
             pubSub.publish(pubSub.TOPICS.SHOW_NOTIFICATION, `Creating new ad`);
             setTimeout(() => {
                 window.location = '/'
