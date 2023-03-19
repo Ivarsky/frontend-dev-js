@@ -24,10 +24,6 @@ export function buildSpinnerView() {
     `
 }
 
-export function buildErrorLoadingAdverts() {//TODO: no se usa??
-    return `<p class="load-error"> Error while loading ads, try later </p>`
-}
-
 export function buildEmptyAdvertslist() {
     return `<p> There are not ads uploaded yet, we will be up and running soon! </p>`
 }

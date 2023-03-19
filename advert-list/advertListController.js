@@ -1,6 +1,6 @@
 import { pubSub } from "../utils/pubSub.js";
 import { getAdverts } from "./advertisements.js";
-import { buildAdvertView, buildSpinnerView, buildErrorLoadingAdverts, buildEmptyAdvertslist } from "./advertView.js";
+import { buildAdvertView, buildSpinnerView, buildEmptyAdvertslist } from "./advertView.js";
 
 export async function advertListController(advertListElement) {
 
