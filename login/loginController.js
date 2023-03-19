@@ -1,6 +1,6 @@
 import { buildSpinnerView } from "../advert-list/advertView.js"; //TODO: spinner
-import { pubSub } from "../pubSub.js";
-import { isEmailValid } from "../utils/isEmailValid.js";
+import { pubSub } from "../utils/pubSub.js";
+import { isEmailValid } from "../utils/accountInfoVerification.js";
 import { loginUser } from "./login.js";
 
 export function loginController(loginElement){
