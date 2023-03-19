@@ -15,11 +15,13 @@ export function buildAdvertView(advert) {
     <h3>${sellOrBuy}</h3>
         <br>
         <h3><span> ${advert.name} - ${advert.price} Euros </span></h3>
-        <br>
-        <img src="${advert.image}" />
-    </div>
+        </div>
+    <img src="${advert.image}" />
     </a>
+    <section> 
+        <h3>Description:</h3>
         <p> ${advert.description} </p>
+    </section>
         `;
     return newAdvertElement;
 }

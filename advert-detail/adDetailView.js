@@ -7,15 +7,20 @@ export const  buildAdvertDetailView = (advert) => {
     }
 
     return`
-    <div class="add-info"">
-        <h2>${sellOrBuy}</h2>
-        <span> ${advert.name} - ${advert.price} Euros </span>
-        <br>
-        <img src="${advert.image}" />
-    </div>
+    <article class="advert">
+        <div class="add-info"">
+            <h2>${sellOrBuy}</h2>
+            <br>
+            <span> ${advert.name} - ${advert.price} Euros </span>
+            <br>
+            </div>
+            <img src="${advert.image}" />
+        <section> 
+        <h3>Description:</h3>
         <p> ${advert.description} </p>
-
-        <button id="deleteAd">Delete</button>
+    </section>
+    </article>
+    <button id="deleteAd">Delete</button>
     `
 }
 
