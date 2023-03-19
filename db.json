@@ -1,0 +1,111 @@
+{
+  "users": [
+    {
+      "username": "sda@asd.com",
+      "password": "$2b$10$K7YnaMG0xTLD05J0M8.Che1FHzA5L7pyHUJc30lHuEO4ifEhviDem",
+      "id": 1
+    },
+    {
+      "username": "antonio@asd.com",
+      "password": "$2b$10$K7YnaMG0xTLD05J0M8.Che1FHzA5L7pyHUJc30lHuEO4ifEhviDem",
+      "id": 2
+    },
+    {
+      "username": "asd1@asd.com",
+      "password": "$2b$10$qro7LKqcKC/jOAY84E2ap.kzsx4oXnh6UAOKuL8lOqceGP7Y7GorK",
+      "id": 3
+    },
+    {
+      "username": "Mental@Magikarp.com",
+      "password": "$2b$10$fUanfxAZ1oimbGM0hVnd6ehV2QkUv8awwHUrUPE7X7mdDi5LdqQ/K",
+      "id": 4
+    },
+    {
+      "username": "new@new.com",
+      "password": "$2b$10$fv24dbAYwxgjjcNemmpGmOwTLlxJ4R0XEV8UmEMrLXVYWHdcuTXBa",
+      "id": 5
+    }
+  ],
+  "advertisements": [
+    {
+      "name": "coca cola abierta",
+      "image": "images/coke.jpg",
+      "price": "1",
+      "description": "me bebi la mitad",
+      "sell": "true",
+      "userId": 1,
+      "updatedAt": "2023-03-18T19:03:50.537Z",
+      "id": 7
+    },
+    {
+      "name": "bycicle",
+      "image": "images/bici.jpg",
+      "price": "100",
+      "description": "Barely used bike",
+      "sell": "true",
+      "userId": 1,
+      "updatedAt": "2023-03-18T19:12:35.384Z",
+      "id": 9
+    },
+    {
+      "name": "portal gun",
+      "image": "images/portalpistol.jpg",
+      "price": "100000",
+      "description": "Looking for an interdimensional portal gun",
+      "sell": "false",
+      "userId": 1,
+      "updatedAt": "2023-03-18T19:13:17.175Z",
+      "id": 10
+    },
+    {
+      "name": "space ship",
+      "image": "images/spaceship.jpg",
+      "price": "500000",
+      "description": "only used in solar system",
+      "sell": "true",
+      "userId": 1,
+      "updatedAt": "2023-03-18T19:13:58.070Z",
+      "id": 11
+    },
+    {
+      "name": "Mr.Meeseeks box",
+      "image": "images/mr.meeseeks.jpg",
+      "price": "25000",
+      "description": "Looking for a mr.meeseeks box",
+      "sell": "false",
+      "userId": 1,
+      "updatedAt": "2023-03-18T19:14:56.117Z",
+      "id": 12
+    },
+    {
+      "name": "jerry",
+      "image": "images/jerry.jpg",
+      "price": "20",
+      "description": "jerry smith, basically useless",
+      "sell": "true",
+      "userId": 4,
+      "updatedAt": "2023-03-18T20:15:24.640Z",
+      "id": 13
+    },
+    {
+      "name": "opel corsa",
+      "image": "images/corsa.jpg",
+      "price": "15000",
+      "description": "del 2000, estado casi nuevo, no negociable",
+      "sell": "true",
+      "userId": 4,
+      "updatedAt": "2023-03-19T13:26:19.133Z",
+      "id": 14
+    },
+    {
+      "name": "plumbus",
+      "image": "images/plumbus.jpg",
+      "price": "400",
+      "description": "everybody knows what is a plumbus",
+      "sell": "true",
+      "userId": 5,
+      "updatedAt": "2023-03-19T21:07:48.637Z",
+      "id": 15
+    }
+  ]
+}

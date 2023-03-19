@@ -1,4 +1,4 @@
-import { buildSpinnerView} from "./loginViews.js"; //TODO: spinner
+import { buildSpinnerView} from "./loginViews.js";
 import { pubSub } from "../utils/pubSub.js";
 import { isEmailValid } from "../utils/accountInfoVerification.js";
 import { loginUser } from "./login.js";
